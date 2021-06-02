@@ -5,3 +5,7 @@ __pycache__
 *.npz
 kitti_data
 models
+
+test
+train
+env
