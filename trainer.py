@@ -456,7 +456,11 @@ class Trainer:
                 reprojection_losses *= mask
 
                 # add a loss pushing mask to 1 (using nn.BCELoss for stability)
-                weighting_loss = 0.2 * nn.BCELoss()(mask, torch.ones(mask.shape).cuda())
+                if self.device.type == "cpu":
+                    weighting_loss = 0.2 * nn.BCELoss()(mask, torch.ones(mask.shape))
+                else:
+                    weighting_loss = 0.2 * nn.BCELoss()(mask, torch.ones(mask.shape).cuda())
+
                 loss += weighting_loss.mean()
 
             if self.opt.avg_reprojection:
@@ -466,8 +470,10 @@ class Trainer:
 
             if not self.opt.disable_automasking:
                 # add random numbers to break ties
-                identity_reprojection_loss += torch.randn(
-                    identity_reprojection_loss.shape).cuda() * 0.00001
+                if self.device.type == "cpu":
+                    identity_reprojection_loss += torch.randn(identity_reprojection_loss.shape) * 0.00001
+                else:
+                    identity_reprojection_loss += torch.randn(identity_reprojection_loss.shape).cuda() * 0.00001
 
                 combined = torch.cat((identity_reprojection_loss, reprojection_loss), dim=1)
             else:
