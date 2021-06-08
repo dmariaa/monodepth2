@@ -24,7 +24,12 @@ class ETS2Dataset(MonoDataset):
         self.img_ext = '.bmp'
 
     def get_color(self, folder, frame_index, side, do_flip):
-        color = self.loader(self.get_image_path(folder, frame_index))
+        try:
+            file = self.get_image_path(folder, frame_index)
+            color = self.loader(file)
+        except FileNotFoundError as err:
+            print("File not found {0} for frame {1}".format(file, frame_index))
+            raise
 
         if do_flip:
             color = color.transpose(PIL.Image.FLIP_LEFT_RIGHT)
