@@ -9,7 +9,10 @@ def split(file):
     dsplit = os.path.split(fsplit[0])
     file = fsplit[1]
     dir = dsplit[-1]
-    return dir + ' ' + str(int(file[8:-5])) + ' l\n'
+    file_number = int(file[8:-4])
+    if file_number==0:
+        print(file + " -> " + str(file_number))
+    return dir + ' ' + str(file_number) + ' l\n'
 
 train = sys.argv[1] if len(sys.argv) > 1 else 0.95
 
