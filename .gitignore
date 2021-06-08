@@ -3,8 +3,10 @@ __pycache__
 *_disp.jpg
 *_disp.npy
 *.npz
-train_files.txt
-val_files.txt
+
+**/train_files.txt
+**/val_files.txt
+
 kitti_data
 models
 
