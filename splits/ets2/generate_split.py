@@ -16,16 +16,23 @@ def split(file):
 
 train = sys.argv[1] if len(sys.argv) > 1 else 0.95
 
-# lines = open("files.txt", 'r').readlines()
-lines = glob.glob("../../train/**/*.bmp")
-num_files = len(lines)
+dirs = glob.glob("../../train/*/")
+files = []
+
+for dir in dirs:
+    fname = os.path.join(dir, '*.bmp')
+    f = glob.glob(fname)
+    f = f[1:-1]
+    print("{}: {}".format(fname, len(f)))
+    files.extend(f)
+
+num_files = len(files)
 val_files = int(num_files * (1-train))
 
 print('train files: ' + str(num_files - val_files))
 print('validation files: ' + str(val_files))
 
-# lines = list(map(lambda s: '20210521-000001 ' + str(int(s[8:-5])) + ' l\n', lines[1:-2]))
-lines = list(map(split, lines[1: -2]))
+lines = list(map(split, files[1: -1]))
 random.shuffle(lines)
 open("train_files.txt", 'w').writelines(lines[:-val_files])
 open("val_files.txt", 'w').writelines(lines[-val_files:])
