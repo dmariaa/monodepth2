@@ -21,7 +21,7 @@ files = []
 
 for dir in dirs:
     fname = os.path.join(dir, '*.bmp')
-    f = glob.glob(fname)
+    f = sorted(glob.glob(fname))
     f = f[1:-1]
     print("{}: {}".format(fname, len(f)))
     files.extend(f)
