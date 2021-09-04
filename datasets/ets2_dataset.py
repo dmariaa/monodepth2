@@ -15,8 +15,9 @@ class ETS2Dataset(MonoDataset):
         # by 1 / image_height. Monodepth2 assumes a principal point to be exactly centered.
         # If your principal point is far from the center you might need to disable the horizontal
         # flip augmentation.
-        self.K = np.array([[990.9949 / 1440, 0, 0.5, 0],
-                           [0, 561.5638 / 816, 0.5, 0],
+        # f = (width / 2) / tan(fov / 2)
+        self.K = np.array([[991 / 1440, 0, 0.5, 0],
+                           [0, 991 / 816, 0.5, 0],
                            [0, 0, 1, 0],
                            [0, 0, 0, 1]], dtype=np.float32)
 
