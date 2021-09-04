@@ -21,7 +21,7 @@ class ETS2Dataset(MonoDataset):
                            [0, 0, 0, 1]], dtype=np.float32)
 
         self.full_res_shape = (1440, 816)
-        self.img_ext = '.bmp'
+        self.img_ext = '.jpg'
 
     def get_color(self, folder, frame_index, side, do_flip):
         try:
