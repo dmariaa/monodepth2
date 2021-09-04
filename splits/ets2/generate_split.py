@@ -14,13 +14,13 @@ def split(file):
         print(file + " -> " + str(file_number))
     return dir + ' ' + str(file_number) + ' l\n'
 
-train = sys.argv[1] if len(sys.argv) > 1 else 0.95
+train = float(sys.argv[1]) if len(sys.argv) > 1 else 0.95
 
 dirs = glob.glob("../../train/*/")
 files = []
 
 for dir in dirs:
-    fname = os.path.join(dir, '*.bmp')
+    fname = os.path.join(dir, '*.jpg')
     f = sorted(glob.glob(fname))
     f = f[1:-1]
     print("{}: {}".format(fname, len(f)))
