@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Servidor URJC" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="Servidor URJC">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/monodepth2-ets2" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/tmp" />
+            <excludedPath local="true" path="$PROJECT_DIR$/models" />
+            <excludedPath local="true" path="$PROJECT_DIR$/test" />
+            <excludedPath local="true" path="$PROJECT_DIR$/env" />
+            <excludedPath local="true" path="$PROJECT_DIR$/__pycache__" />
+            <excludedPath local="true" path="$PROJECT_DIR$/splits" />
+            <excludedPath local="true" path="$PROJECT_DIR$/train" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

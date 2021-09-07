@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="856d9d13-b408-49f4-b287-f6a9d5afa611" name="Servidor URJC">
+        <fileTransfer rootFolder="/home/dmarribas" accessType="SFTP" host="212.128.243.155" port="22" sshConfigId="e50e1caf-da11-46ef-ba69-a8aa7dda8074" sshConfig="dmarribas@212.128.243.155:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -16,8 +16,8 @@ class ETS2Dataset(MonoDataset):
         # If your principal point is far from the center you might need to disable the horizontal
         # flip augmentation.
         # f = (width / 2) / tan(fov / 2)
-        self.K = np.array([[991 / 1440, 0, 0.5, 0],
-                           [0, 991 / 816, 0.5, 0],
+        self.K = np.array([[0.69, 0, 0.5, 0],
+                           [0, 1.22, 0.5, 0],
                            [0, 0, 1, 0],
                            [0, 0, 0, 1]], dtype=np.float32)
 

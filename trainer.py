@@ -402,12 +402,25 @@ class Trainer:
         """Computes reprojection loss between a batch of predicted and target images
         """
         abs_diff = torch.abs(target - pred)
+
+        if torch.sum(torch.isnan(abs_diff)) > 0:
+            print(f"there are nans in step {self.step}, target: {torch.sum(torch.isnan(target))}, "
+                  f"pred: {torch.sum(torch.isnan(pred))}")
+            quit(-1)
+
         l1_loss = abs_diff.mean(1, True)
 
         if self.opt.no_ssim:
             reprojection_loss = l1_loss
         else:
-            ssim_loss = self.ssim(pred, target).mean(1, True)
+            ssim_val = self.ssim(pred, target)
+
+            if torch.sum(torch.isnan(ssim_val)) > 0:
+                print(f"there are nans in step{self.step}, target: {torch.sum(torch.isnan(target))}, "
+                      f"pred: {torch.sum(torch.isnan(pred))}")
+                quit(-1)
+
+            ssim_loss = ssim_val.mean(1, True)
             reprojection_loss = 0.85 * ssim_loss + 0.15 * l1_loss
 
         return reprojection_loss
