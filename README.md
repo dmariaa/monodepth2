@@ -1,3 +1,12 @@
+# Monodepth2 fork to train ets2-dataset
+
+This is a fork of the original [Monodepth2](https://github.com/nianticlabs/monodepth2) modified to be trained
+with the [ETS2 Dataset](https://ets2-dataset.dmariaa.es) as part of my degree in videogames design and development 
+final project.
+
+I want to specially thank all the **Monodepth2** team members for their good work and for releasing it to the open
+community.
+
 # Monodepth2
 
 This is the reference PyTorch implementation for training and testing depth estimation models using the method described in
